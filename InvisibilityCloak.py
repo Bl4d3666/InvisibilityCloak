@@ -79,15 +79,16 @@ def replaceGUIDAndToolName(theDirectory: str, theName: str) -> None:
 				csProjFileCount += 1
 			elif "AssemblyInfo.cs" in file:
 				assemblyInfoFile = path.join(r, file)
-
+	print("+++++++++++++")
+	print(currentToolName)
+	print(slnFile)
+	print(theDirectory)
 	# if there is more than 1 C# project in the directory, display message and exit
 	if csProjFileCount > 1:
 		print(f"\n[-] ERROR: Currently this tool only supports having one C# project file to modify. The project directory you provided has {str(csProjFileCount)}\n")
 		exit(0)
 	
-	print("+++++++++++++")
-	print(currentToolName)
-	print(slnFile)
+
 	
 	print(f"[*] INFO: Changing C# project GUID in below files:\n{slnFile}\n{csProjFile}\n{assemblyInfoFile}\n")
 	# capture current tool name based on VS sln file name
