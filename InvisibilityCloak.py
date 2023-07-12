@@ -84,13 +84,15 @@ def replaceGUIDAndToolName(theDirectory: str, theName: str) -> None:
 	if csProjFileCount > 1:
 		print(f"\n[-] ERROR: Currently this tool only supports having one C# project file to modify. The project directory you provided has {str(csProjFileCount)}\n")
 		exit(0)
-
-	print(f"[*] INFO: Changing C# project GUID in below files:\n{slnFile}\n{csProjFile}\n{assemblyInfoFile}\n")
-	# capture current tool name based on VS sln file name
-	currentToolName = currentToolName.replace(".sln", "")
+	
 	print("+++++++++++++")
 	print(currentToolName)
 	print(slnFile)
+	
+	print(f"[*] INFO: Changing C# project GUID in below files:\n{slnFile}\n{csProjFile}\n{assemblyInfoFile}\n")
+	# capture current tool name based on VS sln file name
+	currentToolName = currentToolName.replace(".sln", "")
+
 	# initialize this to random sha256 hash so there is no match initially (sha256 hash of "test")
 	currentGUID = "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2"
 
